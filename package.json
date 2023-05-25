@@ -1,0 +1,39 @@
+{
+  "name": "deepbase-mongo",
+  "version": "1.0.3",
+  "description": "⚡ Fastest and simplest way to add mongo persistence to your projects.",
+  "main": "index.js",
+  "dependencies": {
+    "mongodb": "^5.5.0",
+    "nanoid": "^3.3.4"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clasen/DeepBaseMongo.git"
+  },
+  "keywords": [
+    "mongo",
+    "mongodb",
+    "json",
+    "database",
+    "persist",
+    "nested",
+    "objects",
+    "user-friendly",
+    "intuitive",
+    "reliable",
+    "synchronization",
+    "mocking",
+    "structure",
+    "lowdb"
+  ],
+  "author": "Martin Clasen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clasen/DeepBase/issues"
+  },
+  "homepage": "https://github.com/clasen/DeepBase#readme"
+}
