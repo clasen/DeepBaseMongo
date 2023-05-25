@@ -1,6 +1,8 @@
-# 🌳 DeepBase
+# 🌳 DeepBase Mongo
 
 DeepBaseMongo is an innovative and efficient module designed to seamlessly integrate with MongoDB, providing a robust solution for managing and interacting with databases. With DeepBaseMongo, you can effortlessly perform CRUD operations and manipulate data stored in MongoDB collections.
+
+For simplicity you may be interested in the version of DeepBase that persists in JSON files. https://www.npmjs.com/package/deepbase
 
 ## 📦 Installation
 ```shell
