@@ -1,7 +1,7 @@
 {
   "name": "deepbase-mongo",
-  "version": "1.0.6",
-  "description": "⚡ Fastest and simplest way to add mongo persistence to your projects.",
+  "version": "1.0.20",
+  "description": "⚡ Fastest and simplest way to add Mongo persistence to your projects.",
   "main": "index.js",
   "dependencies": {
     "mongodb": "^5.5.0",
@@ -33,7 +33,13 @@
   "author": "Martin Clasen",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/clasen/DeepBase/issues"
+    "url": "https://github.com/clasen/DeepBaseMongo/issues"
   },
-  "homepage": "https://github.com/clasen/DeepBase#readme"
+  "homepage": "https://github.com/clasen/DeepBaseMongo#readme",
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  },
+  "directories": {
+    "test": "test"
+  }
 }

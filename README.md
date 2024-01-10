@@ -6,12 +6,15 @@ For simplicity you may be interested in the version of DeepBase that persists in
 
 ## 📦 Installation
 ```shell
-npm install deepbase
+# DeepBaseMongo requires MongoDB.
+docker run --name mongodb -d mongodb/mongodb-community-server:6.0-ubi8
+
+npm install deepbase-mongo
 ```
 
 ## 🔧 Usage
 ```js
-const DeepBase = require("deepbase");
+const DeepBase = require("deepbase-mongo");
 const mem = new DeepBase({ name: "db" }); // "db" mongo document
 await mem.connect();
 ```
