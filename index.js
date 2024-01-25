@@ -122,6 +122,11 @@ class DeepBaseMongo {
         return (r !== null && typeof r === "object") ? Object.keys(r) : [];
     }
 
+    async values(...args) {
+        const r = await this.get(...args)
+        return (r !== null && typeof r === "object") ? Object.values(r) : [];
+    }        
+
     async upd(...args) {
         const func = args.pop();
         return this.set(...args, func(await this.get(...args)));

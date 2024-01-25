@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 
-const DeepBase = require('../index');
-const assert = require('assert');
+import DeepBase from '../index.js';
+import assert from 'assert';
 
-describe('DeepBase', () => {
+describe('DeepBaseMongo', () => {
     let db;
 
     beforeEach(async () => {
@@ -130,6 +130,15 @@ describe('DeepBase', () => {
             assert.deepEqual(await db.keys('foo'), ['bar', 'quux']);
         });
     });
+
+    describe('#values()', () => {
+
+        it('should return values', async () => {
+            await db.set('foo', 'bar', 1);
+            await db.set('foo', 'quux', 1);
+            assert.deepEqual(await db.values('foo'), [1, 1]);
+        });
+    });    
 
     describe('#upd()', async () => {
 

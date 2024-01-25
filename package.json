@@ -1,6 +1,6 @@
 {
   "name": "deepbase-mongo",
-  "version": "1.0.20",
+  "version": "1.1.0",
   "description": "⚡ Fastest and simplest way to add Mongo persistence to your projects.",
   "main": "index.js",
   "dependencies": {
