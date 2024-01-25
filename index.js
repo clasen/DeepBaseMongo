@@ -55,7 +55,6 @@ class DeepBaseMongo {
 
     async _updateOne(arr, type = "$set") {
         const _id = arr.shift();
-        // const set = this._set(arr);
         const val = arr.pop();
         if (arr.some(clave => /[.$\\]/.test(clave)))
             throw new Error('Invalid key: avoid characters: "." "$" "\\"');
@@ -134,34 +133,3 @@ class DeepBaseMongo {
 }
 
 module.exports = DeepBaseMongo;
-
-
-
-
-
-
-
-    // _set(arr) {
-    //     if (arr.length > 2) {
-    //         let key = arr.shift();
-    //         let newObj = this._set(arr);
-    //         return { [key]: newObj };
-    //     } else {
-    //         return { [arr[0]]: arr[1] };
-    //     }
-    // }
-
-    // _flatten(obj) {
-    //     let result = [];
-    //     function traverse(o, chain) {
-    //         if (typeof o === 'object') {
-    //             for (let i in o) {
-    //                 traverse(o[i], chain.concat([i]));
-    //             }
-    //         } else {
-    //             result.push(...chain, o);
-    //         }
-    //     }
-    //     traverse(obj, []);
-    //     return result;
-    // }
