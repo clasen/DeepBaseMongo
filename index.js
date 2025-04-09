@@ -1,5 +1,5 @@
-const { MongoClient } = require('mongodb');
-const { nanoid } = require("nanoid");
+import { customAlphabet } from "nanoid";
+import { MongoClient } from 'mongodb';
 
 class DeepBaseMongo {
 
@@ -7,11 +7,15 @@ class DeepBaseMongo {
         this.base = "deepbase";
         this.name = "documents";
         this.url = "mongodb://localhost:27017?retryWrites=false";
-        this.idn = 10;
         this.session = null;
+
+        this.nidAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        this.nidLength = 10;
+        this.nanoid = customAlphabet(this.nidAlphabet, this.nidLength);
+
         Object.assign(this, opts);
 
-        this.client = new MongoClient(this.url, { useUnifiedTopology: true });
+        this.client = new MongoClient(this.url);
         this.db = this.client.db(this.base);
         this.collection = this.db.collection(this.name);
     }
@@ -111,7 +115,7 @@ class DeepBaseMongo {
 
     async add(...keys) {
         const value = keys.pop();
-        const id = nanoid(this.idn);
+        const id = this.nanoid(this.idn);
         await this.set(...[...keys, id, value]);
         return [...keys, id];
     }
@@ -124,7 +128,12 @@ class DeepBaseMongo {
     async values(...args) {
         const r = await this.get(...args)
         return (r !== null && typeof r === "object") ? Object.values(r) : [];
-    }        
+    }
+
+    async entries(...args) {
+        const r = await this.get(...args);
+        return (r !== null && typeof r === "object") ? Object.entries(r) : [];
+    }
 
     async upd(...args) {
         const func = args.pop();
@@ -132,4 +141,4 @@ class DeepBaseMongo {
     }
 }
 
-module.exports = DeepBaseMongo;
+export default DeepBaseMongo;

@@ -7,7 +7,7 @@ For simplicity you may be interested in the version of DeepBase that persists in
 ## 📦 Installation
 ```shell
 # DeepBaseMongo requires MongoDB.
-docker run --name mongodb -d mongodb/mongodb-community-server:6.0-ubi8
+docker run -d -p 27017:27017 --name mongodb -d mongodb/mongodb-community-server:8.0-ubi8
 
 npm install deepbase-mongo
 ```

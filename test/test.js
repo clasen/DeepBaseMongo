@@ -140,6 +140,23 @@ describe('DeepBaseMongo', () => {
         });
     });    
 
+    describe('#entries()', () => {
+        it('should return entries', async () => {
+            await db.set('foo', 'bar', 1);
+            await db.set('foo', 'quux', 2);
+            assert.deepEqual(await db.entries('foo'), [['bar', 1], ['quux', 2]]);
+        });
+
+        it('should return empty array if path does not exist', async () => {
+            assert.deepEqual(await db.entries('nonexistent'), []);
+        });
+
+        it('should return empty array if value is not an object', async () => {
+            await db.set('foo', 'bar', 'string');
+            assert.deepEqual(await db.entries('foo', 'bar'), []);
+        });
+    });
+
     describe('#upd()', async () => {
 
         it('should update field keys', async () => {
